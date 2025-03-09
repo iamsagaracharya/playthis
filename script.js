@@ -3,7 +3,7 @@ document.getElementById("playButton").addEventListener("click", function() {
     const videoFrame = document.getElementById("videoFrame");
 
     // Set the correct YouTube embed URL
-    videoFrame.src = "https://www.youtube.com/embed/SBHoeRlzt9I?autoplay=1";
+    videoFrame.src = "https://www.youtube.com/embed/GMgsFZ4rkEI";  // Corrected embed URL
 
     // Show the video container
     videoContainer.classList.remove("hidden");
