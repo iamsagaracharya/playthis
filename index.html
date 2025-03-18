@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,5 +20,87 @@
         </div>
     </div>
     <script src="script.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Hearts and Roses</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+            overflow: hidden;
+        }
+        .button-container {
+            position: absolute;
+            z-index: 10;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .full-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: pink;
+            display: none;
+            z-index: 5;
+        }
+        .heart, .rose {
+            position: absolute;
+            font-size: 24px;
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(1); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button onclick="showFullScreen()">Click Here Aashma</button>
+    </div>
+    <div class="full-screen" id="fullScreen"></div>
+    
+    <script>
+        function showFullScreen() {
+            const screen = document.getElementById('fullScreen');
+            screen.style.display = 'block';
+            createHeartsAndRoses();
+        }
+
+        function createHeartsAndRoses() {
+            const screen = document.getElementById('fullScreen');
+            for (let i = 0; i < 50; i++) {
+                const element = document.createElement('div');
+                element.className = Math.random() > 0.5 ? 'heart' : 'rose';
+                element.innerHTML = Math.random() > 0.5 ? '❤️' : '🌹';
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                screen.appendChild(element);
+
+                setTimeout(() => {
+                    element.remove();
+                }, 5000);
+            }
+        }
+    </script>
 </body>
 </html>
